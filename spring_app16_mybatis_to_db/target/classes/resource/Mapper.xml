@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace=" ">
+	<select id="selectAll" resultType="EmpDto">
+		select * from emp
+	</select>
+	
+	<select id="selectOneByEmpno" parameterType="int" resultType="EmpDto">
+		select * from emp
+		where empno = #{empno}
+	</select>
+	<select id="insertOneByEmpno" parameterType="EmpDto">
+	
+		insert into emp
+		values (#{empno}, #{ename}, #{sal}, #{deptno})
+	</select>
+	<select id="updateOneByEmpno" parameterType="EmpDto">
+		update emp
+		set ename = #{ename}, sal = #{sal}, deptno = #{deptno}
+		where empno = #{empno}
+	</select>
+	
+	<select id="deleteOneByEmpno" parameterType="int">
+		delete from emp
+		where empno = #{empno}
+	</select>
+	
+</mapper>
+
+

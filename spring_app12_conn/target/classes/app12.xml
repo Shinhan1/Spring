@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!-- <bean id="oracle" class="spring_app12_conn.OracleDAO"></bean> -->
+	
+	<!-- 기본 생성자를 통한 DBMS 접근하는 방법 대신
+	개발자가 method를 만들어서 접근하도록 되어 있음 
+		=> 가장 먼저 실행된 메소드를 선택 : init-method
+		=> 메모리 제거할 목적의 메소드 선택 : destroy-method
+	-->
+	
+	<bean id="dao" class="spring_app12_conn.MysqlDAO" 
+		init-method="init" destroy-method="close" scope="singleton" ></bean>
+
+</beans>

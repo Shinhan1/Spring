@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+	
+	<!-- NowTime time = new NowTime() -->
+	<bean id="time" class="spring_app07_maven.NowTime">
+	
+	</bean>
+	
+	<bean id="gr" class="spring_app07_maven.GreetingImple">
+		<constructor-arg index="0" value="스프링 재밌다"></constructor-arg>
+		<!-- <property name="nt" ref="time" /> -->
+	</bean>
+	
+
+</beans>

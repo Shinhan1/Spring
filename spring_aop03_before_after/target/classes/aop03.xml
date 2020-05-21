@@ -8,7 +8,7 @@
 
 	<bean class="advice.MethodAfter_Advice" id="interceptor_after"/>
 	
-	<bean class="spring_aop03_before_hw.BankServiceImple" id="biz" p:balance="1000000" p:name="반장">
+	<bean class="spring_aop03_before_after.BankServiceImple" id="biz" p:balance="1000000" p:name="반장">
 	<!-- <bean id="biz" class="spring_aop03_before_hw.BankServiceImple">
 	<property name="name" value="반장" />
 	<property name="balance" value="1000000" />

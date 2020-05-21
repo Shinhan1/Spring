@@ -1,4 +1,4 @@
-package spring_aop03_before_hw;
+package spring_aop03_before_after;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;

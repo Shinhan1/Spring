@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="cw" class="spring_aop07_aopHW.CheckWeapon_AspectJ"></bean>
+	<bean id="before" class="advice.Method_before"></bean>
+	<bean id="after" class="advice.Method_File"></bean>
+	<bean id="wi" class="spring_aop07_aopHW.WeaponImple">
+		<property name="bullet" value="6" />
+	</bean>
+	
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean" p:interceptorNames="before, after" p:target-ref="wi">
+	
+</bean>
+
+	<aop:config>
+		<aop:aspect id="check" ref="cw">
+			<aop:pointcut expression="execution (public * * (..))" id="checkPointCut"/>
+			<aop:around method="logAround" pointcut-ref="checkPointCut"/>
+		</aop:aspect>
+	
+	</aop:config>
+
+
+</beans>

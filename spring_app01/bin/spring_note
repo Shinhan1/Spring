@@ -42,10 +42,16 @@ Bean Life Cycle, Bean Dependency(종속성) 등을 알 수 있다.
   -> 사용 : 원래 업무들에서 공통된 엄무들을 찾고 그 업무들은 AOP로 만들어 놓고
                필요로 한 순간에 사이사이 끼워 넣기
 
+> AOP 종류
+ - before	: 메소드 실행 전 실행
+ - after -returning	: 메소드 실행 후 실행
+ - after-throwing : 메소드 실행 중 예외발생 실행
+ - after : 메소드 실행 후 실행(예외 발생 여부 상관 없음)
+ - around : 메소드 실행 전/후, 예외 발생 시 실행
 
 > AOP 종류
  1. AspectJ	1) 코드 적용
-		2) Compile시 적용
+			2) Compile시 적용
 
  2. spring		3) Runtime시 적용
 

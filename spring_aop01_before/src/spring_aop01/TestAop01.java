@@ -3,7 +3,7 @@ package spring_aop01;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class TestApp01 {
+public class TestAop01 {
 	public static void main(String[] args) {
 		ApplicationContext context = 
 				new GenericXmlApplicationContext("app01.xml");

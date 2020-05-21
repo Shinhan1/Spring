@@ -20,7 +20,7 @@ public class CheckTime {
 		sw.stop();
 		
 		System.out.println("수행 시간 : " + methodName);
-		System.out.println("수행시간 : " + sw.getTotalTimeSeconds());
+		System.out.println("수행 시간 : " + sw.getTotalTimeSeconds());
 		
 		
 		return obj;

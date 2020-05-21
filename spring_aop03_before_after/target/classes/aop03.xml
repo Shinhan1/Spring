@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean class="advice.InterceptorAdvice" id="interceptor_before"/>
+
+	<bean class="advice.MethodAfter_Advice" id="interceptor_after"/>
+	
+	<bean class="spring_aop03_before_hw.BankServiceImple" id="biz" p:balance="1000000" p:name="반장">
+	<!-- <bean id="biz" class="spring_aop03_before_hw.BankServiceImple">
+	<property name="name" value="반장" />
+	<property name="balance" value="1000000" />
+	</bean> -->
+	</bean>
+	
+	<bean class="org.springframework.aop.framework.ProxyFactoryBean" id="proxyBean" p:interceptorNames="interceptor_before,interceptor_after" p:target-ref="biz">
+
+<!-- <property name="target" ref="biz" /> 
+	 <property name="interceptorNames" > 
+	 	<list> 
+	 		<value>interceptor_before</value> 
+	 		<value>interceptor_after</value> 
+	 	</list> 
+	 </property> -->
+
+
+</bean>
+	
+	
+
+</beans>

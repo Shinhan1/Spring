@@ -1,11 +1,15 @@
 package spring_aop07_aopHW;
 
 public class WeaponImple implements Weapon {
-	String str;
+	String type;
 	int bullet;
 	
 	public WeaponImple() {
 		this.bullet = 6;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	public void setBullet(int bullet) {

@@ -5,35 +5,25 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.aspectj.lang.ProceedingJoinPoint;
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.util.StopWatch;
 
-public class CheckWeapon_AspectJ {
-	public Object logAround(ProceedingJoinPoint pjp) throws Throwable {
-//		
-//		String methodName = pjp.getSignature().getName();
-//		
-//		StopWatch sw = new StopWatch();
-//		
-//		sw.start();
-//		
-//		Object obj = pjp.proceed();
-//		
-//		sw.stop();
-//		
-//		System.out.println("수행 이름 : " + methodName);
-//		System.out.println("수행 시간 : " + sw.getTotalTimeSeconds());
+public class CheckTime_proxy implements MethodInterceptor{
+
+	@Override
+	public Object invoke(MethodInvocation invocation) throws Throwable {
 		Date d = new Date();
 		SimpleDateFormat adf = new SimpleDateFormat("YYYY/MM/dd - hh24:mm:ss");
 		String useTime = adf.format(d);
 		
-		String pathName = "C:\\Users\\goott7-9\\Downloads\\log\\weapon1.txt";
+		String pathName = "C:\\Users\\goott7-9\\Downloads\\log\\weapon2.txt";
 		
 		StopWatch sw = new StopWatch();
 		
 		sw.start();
 		
-		Object obj = pjp.proceed();
+		Object obj = invocation.proceed();
 		
 		sw.stop();
 		
@@ -51,9 +41,22 @@ public class CheckWeapon_AspectJ {
 		pw.flush();
 		pw.close();
 		
-		return obj;
 		
+		
+		return obj;
 	}
-	
-	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

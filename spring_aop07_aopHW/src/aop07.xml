@@ -6,7 +6,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<bean id="cw" class="spring_aop07_aopHW.CheckWeapon_AspectJ"></bean>
+	<!-- <bean id="cw" class="spring_aop07_aopHW.CheckWeapon_AspectJ"></bean>
 	<bean id="before" class="advice.Method_before"></bean>
 	<bean id="after" class="advice.Method_File"></bean>
 	<bean id="wi" class="spring_aop07_aopHW.WeaponImple">
@@ -23,7 +23,44 @@
 			<aop:around method="logAround" pointcut-ref="checkPointCut"/>
 		</aop:aspect>
 	
-	</aop:config>
+	</aop:config> -->
+	
+	<bean class="spring_aop07_aopHW.CheckTime_proxy" id="advice"/>
+
+<bean class="spring_aop07_aopHW.CheckWeapon_AspectJ" id="aspect"> </bean>
+
+
+<bean class="spring_aop07_aopHW.WeaponImple" id="weapon">
+
+<property value="pistol" name="type"/>
+
+</bean>
+
+<!-- proxy -->
+
+
+
+<bean class="org.springframework.aop.framework.ProxyFactoryBean" id="proxy">
+
+<property name="target" ref="weapon"/>
+
+<property value="advice" name="interceptorNames"/>
+
+</bean>
+
+
+<aop:config>
+
+
+<aop:aspect id="Aspect" ref="aspect">
+
+<aop:pointcut id="checkPoint" expression="execution (public * *(..))"/>
+
+<aop:around pointcut-ref="checkPoint" method="logAround"/>
+
+</aop:aspect>
+
+</aop:config>
 
 
 </beans>

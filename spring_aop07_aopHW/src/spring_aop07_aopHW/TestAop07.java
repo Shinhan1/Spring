@@ -9,6 +9,7 @@ public class TestAop07 {
 				new GenericXmlApplicationContext("aop07.xml");
 		
 		Weapon w = ctx.getBean("proxy", Weapon.class);
+//		Weapon w = ctx.getBean("weapon", Weapon.class);
 		
 		w.fire();
 		w.reload();

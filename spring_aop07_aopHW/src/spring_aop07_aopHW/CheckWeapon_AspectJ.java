@@ -50,7 +50,7 @@ public class CheckWeapon_AspectJ {
 		pw.println(actingTime + " : 무기 수행시간");
 		pw.flush();
 		pw.close();
-		
+		asdasdsad
 		return obj;
 		
 	}
